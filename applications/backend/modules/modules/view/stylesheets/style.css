@@ -1,0 +1,16 @@
+.module {
+	padding: 10px;
+	margin: 4px;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+	border-left: 4px solid #CCC;
+}
+
+.module .module_actions {
+	float: right;
+}
+
+.module .name {
+	font-weight: bold;
+}

@@ -1,0 +1,1 @@
+<td style="height: 100%; width: 32px; background: url(<?php echo ImageHelper::app_image_url('layout/border-left.png')?>) repeat-y;"></td>

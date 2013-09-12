@@ -1,0 +1,1 @@
+<?php include $this->partial('category_edit_form')?>

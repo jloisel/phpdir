@@ -1,0 +1,7 @@
+<?php
+
+$__ROUTES = array(
+
+);
+
+?>

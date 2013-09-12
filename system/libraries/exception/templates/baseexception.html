@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+	<head>
+		<title>
+			Exception Code <?php echo $this->exception->getCode() ?>
+		</title>
+		<meta name="robots" content="noindex, nofollow" />
+		<style type="text/css">
+		<!--
+		body {
+			font-family: tahoma, verdana, arial;
+			font-size : 12px;
+		}
+		
+		#summary {
+			color: red;
+		}
+		
+		#exception {
+			width: 760px;
+			margin: 200px auto 0 auto;
+		}
+		
+		hr {
+			color: red;
+			background-color: red;
+			height: 1px;
+			border: 0px;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<div id="exception">
+			<h4 id="summary"><b style="text-decoration: underline">/!\</b>&nbsp;<?php echo $this->exception->getMessage() ?></h4>
+			<hr />
+			<ul style="list-style-type: none;">
+				<li>
+					<b>File</b> :&nbsp;
+					<b style="color: brown;"><?php echo $this->exception->getFile() ?></b> : 
+					<b><?php echo $this->exception->getLine() ?></b>
+				</li>
+				<li>
+					&nbsp;
+				</li>
+				<li>
+					<b>Trace</b> : <br />
+				</li>
+				<li>
+					<?php if (is_array($this->exception->getTrace())): ?>
+						<?php foreach ($this->exception->getTrace() as $key => $value): ?>
+							<b>#<?php echo $key ?></b>&nbsp;:&nbsp;
+							<ul>
+								<?php if(isset($value['file']) && isset($value['line'])): ?>
+									<li>
+										<b style="color: deepPink;"><?php echo $value['file'] ?></b> : 
+										<b><?php echo $value['line'] ?></b>
+									</li>
+								<?php endif; ?>
+								<li>
+									<b style="color: green;"><?php echo $value['class'] ?></b>
+									<?php echo $value['type'] ?>
+									<b style="color: navy;"><?php echo $value['function'] ?>()</b>
+								</li>
+								<?php if (is_array($value['args']) && $value['args'] != null): ?>
+									<li>
+										<b>Args</b> :
+										<ul>
+											<?php foreach ($value['args'] as $argName => $argValue): ?>
+												<li><?php echo $argName ?> =&gt; <?php echo (string)$argValue ?></li>
+											<?php endforeach; ?>
+										</ul>
+									</li>
+								<?php endif; ?>
+							</ul>
+						<?php endforeach; ?>
+					<?php endif; ?>
+				</li>
+			</ul>
+			<hr />
+		</div>
+	</body>
+</html>
